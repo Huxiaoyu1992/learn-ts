@@ -2,7 +2,7 @@
  * @Author: huxiaoyu
  * @LastEditors: huxiaoyu
  * @Date: 2020-11-26 17:25:39
- * @LastEditTime: 2020-11-26 18:18:38
+ * @LastEditTime: 2020-12-01 15:22:59
  * @Description: 泛型
  */
 function funct1<T>(name: T): T{
@@ -79,3 +79,25 @@ const b2: A<string> = (a: string, b: string):string => {
   return a + b
 }
 
+class Queue1<T> {
+  private data = []
+  push(item:T) {
+    return this.data.push(item)
+  }
+  pop():T {
+    return this.data.shift()
+  }
+}
+
+const queue1 = new Queue1()
+const list1 = queue1.push('ss')
+queue1.pop()
+
+
+function plus(a: number, b:number):number {
+  return a + b
+}
+interface Plus<T> {
+  (a: T, b: T):T
+}
+const a: Plus<number> = plus
